@@ -6,8 +6,7 @@ export default function PostsPage() {
             <div className="container">
                 <h1>Ecco i post pubblicati finora!</h1>
             </div>
-
             <PostList />
         </>
-    )
+    );
 }
