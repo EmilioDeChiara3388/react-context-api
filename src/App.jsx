@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import GlobalContext from './contexts/GlobalContext'
 import Home from "./pages/Home"
 import About from "./pages/About"
-import PostsList from "./pages/PostsList"
+import PostsPage from "./pages/PostsPage"
 import SinglePost from "./pages/SinglePost"
 import NotFound from './pages/NotFound'
 import DefaultLayout from './pages/DefaultLayout'
@@ -19,7 +19,7 @@ function App() {
               <Route index element={<Home />} />
               <Route path='/about' element={<About />} />
               <Route path='/posts'>
-                <Route index element={<PostsList />} />
+                <Route index element={<PostsPage />} />
                 <Route path=':slug' element={<SinglePost />} />
               </Route>
               <Route path='*' element={<NotFound />}></Route>
