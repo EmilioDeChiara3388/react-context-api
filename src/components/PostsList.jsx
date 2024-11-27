@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
+import GlobalContext from "../contexts/GlobalContext"
 export default function PostList() {
 
     const [posts, setPosts] = useState([])
+    const { baseUrl } = useContext(GlobalContext)
 
-
-    function fetchData(url = "http://127.0.0.1:3000/") {
+    function fetchData(url = baseUrl) {
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
@@ -25,7 +26,7 @@ export default function PostList() {
                                     <div className="col" key={post.slug}  >
                                         <div className="card border border-danger" >
                                             <Link to={`/posts/${post.slug}`}>
-                                                <img className='rounded-top object-fit-cover card-img-top' src={'http://localhost:3000/imgs/posts/' + post.image} alt="" />
+                                                <img className='rounded-top object-fit-cover card-img-top' src={`${baseUrl}/imgs/posts/${post.image}`} alt="" />
                                             </Link>
                                             <div className='d-flex justify-content-between align-items-center'>
                                                 <div>
